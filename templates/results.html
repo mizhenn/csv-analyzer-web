@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h1 class="h4">Analysis Results</h1>
+    <a href="{{ url_for('index') }}" class="btn btn-primary">Analyze another file</a>
+  </div>
+
+  <section class="section">
+    <h2 class="h5">File information</h2>
+    <ul class="list-unstyled mb-0">
+      <li><strong>File name:</strong> {{ filename }}</li>
+      <li><strong>Encoding used:</strong> {{ encoding_used }}</li>
+      <li><strong>Detected delimiter:</strong> <code>{{ detected_delimiter }}</code></li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h2 class="h5">Dataset dimensions</h2>
+    <p class="mb-1"><strong>Total rows:</strong> {{ rows }}</p>
+    <p class="mb-1"><strong>Total columns:</strong> {{ cols }}</p>
+  </section>
+
+  <section class="section">
+    <h2 class="h5">Column names and data types</h2>
+    <div class="table-responsive sticky-table">
+      {{ dtypes_html | safe }}
+    </div>
+  </section>
+
+  {% if overall_missing > 0 %}
+  <section class="section">
+    <h2 class="h5">Missing values</h2>
+    <div class="table-responsive sticky-table">
+      {{ missing_per_col_html | safe }}
+    </div>
+    <p class="mt-2">
+      <strong>Overall missing:</strong> {{ overall_missing }} values
+      ({{ overall_missing_pct }}%)
+    </p>
+  </section>
+  {% endif %}
+
+  <section class="section">
+    <h2 class="h5">Duplicate rows</h2>
+    <p class="mb-2"><strong>Duplicates count:</strong> {{ duplicates_count }}</p>
+    {% if duplicates_count > 0 %}
+      <p class="text-muted">Showing up to 10 duplicate rows.</p>
+      <div class="table-responsive sticky-table">
+        {{ dup_preview_html | safe }}
+      </div>
+    {% else %}
+      <p class="text-muted">No duplicate rows detected.</p>
+    {% endif %}
+  </section>
+
+  <section class="section">
+    <h2 class="h5">Numeric summary</h2>
+    {% if has_numeric %}
+      <div class="table-responsive sticky-table">
+        {{ numeric_summary_html | safe }}
+      </div>
+    {% else %}
+      <p class="text-muted">This dataset has no numeric columns.</p>
+    {% endif %}
+  </section>
+
+  <section class="section">
+    <h2 class="h5">First 10 rows preview</h2>
+    <div class="table-responsive sticky-table">
+      {{ preview_html | safe }}
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="h5">Memory usage</h2>
+    <p class="mb-0">{{ mem_usage_bytes }} bytes ({{ mem_usage_human }})</p>
+  </section>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="row">
+    <div class="col-lg-8">
+      <h1 class="h4 mb-3">Upload a CSV file</h1>
+      <p class="text-muted">Max size: {{ max_size_mb }} MB. Only .csv files are accepted.</p>
+      <form method="post" action="{{ url_for('analyze') }}" enctype="multipart/form-data" class="needs-validation" novalidate>
+        <div class="mb-3">
+          <label for="file" class="form-label">Choose CSV file</label>
+          <input class="form-control" type="file" id="file" name="file" accept=".csv" required aria-describedby="fileHelp">
+          <div id="fileHelp" class="form-text">Your file is processed in-memory and not stored.</div>
+          <div class="invalid-feedback">Please provide a CSV file.</div>
+        </div>
+        <button type="submit" class="btn btn-primary">Analyze</button>
+      </form>
+    </div>
+  </div>
+{% endblock %}
