@@ -3,6 +3,10 @@ Thought for 31s
 
 Upload a CSV and get instant insights — rows, columns, data types, missing values, duplicates, numeric summary, preview, and more.  
 Lightweight, local-first, and easy to run.
+<img width="1306" height="684" alt="Screenshot 2025-08-21 at 4 55 35 PM" src="https://github.com/user-attachments/assets/4ceda08b-33b2-47fb-8cc8-95dbb897364d" />
+<img width="1366" height="1200" alt="Screenshot 2025-08-21 at 4 54 54 PM" src="https://github.com/user-attachments/assets/57bb2905-84cc-4ec5-8ba9-2ac9a2466e2b" />
+<img width="1443" height="980" alt="Screenshot 2025-08-21 at 4 55 09 PM" src="https://github.com/user-attachments/assets/81954473-97cb-4dbb-9da0-a94adff595a1" />
+<img width="1465" height="1017" alt="Screenshot 2025-08-21 at 4 55 22 PM" src="https://github.com/user-attachments/assets/1c437084-4c10-4705-a0ae-ae04c3795269" />
 
 ---
 
